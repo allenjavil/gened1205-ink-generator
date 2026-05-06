@@ -1,0 +1,159 @@
+character,pinyin,meaning,visual_category,prompt_hint,usable_for_image
+山,shān,mountain; hill; peak,landscape,towering ink-wash mountain peaks,yes
+水,shuǐ,water; liquid,water,flowing river water with soft ripples,yes
+河,hé,river; stream; Yellow River,water,winding river or stream,yes
+江,jiāng,large river; Yangzi,water,wide flowing river,yes
+海,hǎi,sea; ocean; maritime,water,vast ocean or sea,yes
+湖,hú,lake; Hubei; Hunan,water,quiet lake surface,yes
+波,bō,waves; breakers; undulations,water,rolling waves,yes
+浪,làng,wave; reckless; wasteful,water,large curling wave,yes
+泉,quán,spring; fountain; wealth,water,clear spring or fountain,yes
+池,chí,pool; pond; moat; cistern,water,small pond or pool,yes
+港,gǎng,port; harbor; bay; small stream,water,harbor or port by water,yes
+湾,wān,bay; cove; inlet; bend of stream,water,curving bay or inlet,yes
+岛,dǎo,island,landscape,small island in water,yes
+岸,àn,bank; shore; beach; coast,landscape,shoreline or river bank,yes
+峰,fēng,peak; summit; camel hump,landscape,sharp mountain summit,yes
+石,shí,stone; rock; mineral,landscape,rocks and stone forms,yes
+土,tǔ,soil; earth; items made of earth,landscape,earthy ground or soil,yes
+地,dì,earth; soil; ground; region,landscape,ground or earth terrain,yes
+田,tián,field; arable land; cultivated,landscape,cultivated field,yes
+野,yě,open country; field; wilderness,landscape,open wilderness field,yes
+村,cūn,village; hamlet,place,small village or hamlet,yes
+林,lín,forest; grove,plant,forest grove,yes
+森,sēn,forest; luxuriant vegetation,plant,dense forest,yes
+木,mù,tree; wood; lumber; wooden,plant,tree or wood form,yes
+树,shù,tree; plant; set up,plant,standing tree,yes
+竹,zhú,bamboo; flute,plant,bamboo stalks,yes
+草,cǎo,grass; straw; thatch; herbs,plant,grass and herbs,yes
+花,huā,flower; blossoms,plant,flower blossoms,yes
+梅,méi,plums; prunes; surname,plant,plum blossoms,yes
+兰,lán,orchid; elegant; graceful,plant,orchid flowers,yes
+莲,lián,lotus; water lily,plant,lotus or water lily,yes
+松,sōng,pine; loose; loosen; relax,plant,pine tree branches,yes
+柳,liǔ,willow; poplar; aspen,plant,willow tree,yes
+桑,sāng,mulberry tree,plant,mulberry tree,yes
+桃,táo,peach; marriage; surname,plant,peach tree or peach blossoms,yes
+麦,mài,wheat; barley; oats,plant,wheat or grain field,yes
+米,mǐ,uncooked rice,food,rice grains,yes
+豆,dòu,beans; peas,food,beans or peas,yes
+果,guǒ,fruit; result,food,fruit,yes
+菜,cài,vegetables; dish; food,food,vegetables,yes
+茶,chá,tea,food,tea leaves or teacup,yes
+天,tiān,sky; heaven; celestial,sky,wide open sky,yes
+日,rì,sun; day; daytime,sky,pale sun,yes
+月,yuè,moon; month,sky,moon in sky,yes
+星,xīng,star; planet; point of light,sky,stars in night sky,yes
+云,yún,clouds; Yunnan province,weather,drifting clouds,yes
+雨,yǔ,rain; rainy,weather,falling rain,yes
+雪,xuě,snow,weather,falling snow,yes
+风,fēng,wind; air; atmosphere,weather,visible wind through trees or clouds,yes
+雷,léi,thunder,weather,storm clouds and thunder,yes
+电,diàn,electricity; lightning,weather,lightning or electric glow,yes
+雾,wù,fog,weather,soft fog or mist,yes
+烟,yān,smoke; soot,weather,curling smoke,yes
+冰,bīng,ice; ice-cold,weather,ice forms,yes
+寒,hán,cold; wintry; chilly,mood_weather,cold winter atmosphere,yes
+春,chūn,spring,season,spring landscape,yes
+夏,xià,summer,season,summer landscape,yes
+秋,qiū,autumn; fall,season,autumn landscape,yes
+冬,dōng,winter,season,winter landscape,yes
+晨,chén,early morning; daybreak,time,morning light,yes
+晚,wǎn,night; evening; late,time,evening scene,yes
+夜,yè,night; dark,time,night scene,yes
+人,rén,person; people; mankind,figure,small human figure,yes
+女,nǚ,woman; girl; feminine,figure,female figure,yes
+男,nán,male; man; son,figure,male figure,yes
+子,zǐ,child; seed; offspring,figure,child or small figure,yes
+儿,ér,son; child,figure,child figure,yes
+鸟,niǎo,bird,animal,bird in flight,yes
+鱼,yú,fish,animal,fish in water,yes
+马,mǎ,horse,animal,horse,yes
+牛,niú,cow; ox; bull,animal,ox or cow,yes
+羊,yáng,sheep; goat,animal,sheep or goat,yes
+狗,gǒu,dog,animal,dog,yes
+猫,māo,cat,animal,cat,yes
+虎,hǔ,tiger,animal,tiger,yes
+龙,lóng,dragon,mythic_animal,Chinese dragon,yes
+凤,fèng,phoenix,mythic_animal,phoenix bird,yes
+熊,xióng,bear,animal,bear,yes
+虫,chóng,insect; worm,animal,small insect,yes
+蛇,shé,snake,animal,snake,yes
+鹰,yīng,eagle; falcon,animal,eagle or falcon,yes
+鸡,jī,chicken,animal,chicken,yes
+鼠,shǔ,rat; mouse,animal,mouse or rat,yes
+猪,zhū,pig; hog,animal,pig,yes
+狼,láng,wolf,animal,wolf,yes
+龟,guī,turtle; tortoise,animal,turtle,yes
+羽,yǔ,feather; plume; wings,animal_part,feather or wings,yes
+门,mén,gate; door; entrance,architecture,gate or doorway,yes
+户,hù,door; family; household,architecture,door or household entrance,yes
+房,fáng,house; building; room,architecture,house or room,yes
+屋,wū,house; room; building; shelter,architecture,shelter or house,yes
+楼,lóu,multi-story building,architecture,tall building,yes
+桥,qiáo,bridge; beam,architecture,bridge crossing water,yes
+城,chéng,castle; city; town,architecture,city wall or town,yes
+市,shì,market; city; town; trade,place,market or town street,yes
+店,diàn,shop; store; inn; hotel,place,small shop or inn,yes
+路,lù,road; path; street; journey,path,road or path,yes
+道,dào,path; road; street; way,path,winding path or road,yes
+街,jiē,street; road; thoroughfare,path,street,yes
+舟,zhōu,boat,vehicle,small boat,yes
+船,chuán,ship; boat; vessel,vehicle,boat or ship,yes
+车,chē,cart; vehicle,vehicle,cart or vehicle,yes
+镜,jìng,mirror; lens; glass; glasses,object,mirror or lens,yes
+灯,dēng,lantern; lamp,object,lantern or lamp,yes
+钟,zhōng,clock; bell,object,clock or bell,yes
+桌,zhuō,table; desk; stand,object,table or desk,yes
+床,chuáng,bed; couch; framework,object,bed or couch,yes
+椅,yǐ,chair,object,chair,yes
+盘,pán,tray; plate; dish,object,tray or plate,yes
+杯,bēi,cup; glass,object,cup or glass,yes
+瓶,píng,jug; pitcher; vase; bottle,object,vase or bottle,yes
+碟,dié,small dish; plate,object,small dish or plate,yes
+刀,dāo,knife,object,knife,yes
+剑,jiàn,sword; dagger; saber,object,sword,yes
+笔,bǐ,writing brush; pen; write,object,writing brush,yes
+书,shū,book; letter; document,object,book or scroll,yes
+纸,zhǐ,paper,object,sheet of paper,yes
+图,tú,diagram; chart; map; picture,object,map or picture,yes
+画,huà,painting; picture; drawing,object,painting or drawing,yes
+琴,qín,Chinese lute or guitar,object,qin or stringed instrument,yes
+鼓,gǔ,drum,object,drum,yes
+网,wǎng,net; web; network,object,net or web,yes
+伞,sǎn,umbrella,object,umbrella,yes
+衣,yī,clothes; clothing,clothing,clothing or robe,yes
+服,fú,clothes; wear; dress,clothing,clothing,yes
+帽,mào,hat; cap,clothing,hat or cap,yes
+鞋,xié,shoes; footwear,clothing,shoes,yes
+袋,dài,pocket; bag; sack; pouch,object,bag or pouch,yes
+箱,xiāng,case; box; chest; trunk,object,box or chest,yes
+锁,suǒ,lock; padlock; chains,object,lock or chains,yes
+钥,yào,key,object,key,yes
+钱,qián,money; currency; coins,object,coins or money,yes
+金,jīn,gold; metal; money,material,gold or metal,yes
+银,yín,silver; cash; money,material,silver,yes
+玉,yù,jade; precious stone; gem,material,jade stone,yes
+珠,zhū,pearl; gem; precious stone,material,pearl or jewel,yes
+火,huǒ,fire; flame; burn,element,flame or fire,yes
+光,guāng,light; brilliant; shine,element,light rays,yes
+影,yǐng,shadow; image; reflection,element,shadow or reflection,yes
+色,sè,color; tint; hue,element,colored wash or tint,yes
+手,shǒu,hand,body,hand gesture,maybe
+口,kǒu,mouth; entrance; opening,body,mouth or opening,maybe
+目,mù,eye; look; topic,body,eye,maybe
+眼,yǎn,eye; eyelet; opening,body,eye,maybe
+头,tóu,head; top; chief,body,head,maybe
+足,zú,foot; attain; enough,body,foot,maybe
+牙,yá,tooth; teeth,body,teeth,maybe
+耳,ěr,ear,body,ear,maybe
+心,xīn,heart; mind; soul,symbol,heart shape or emotional symbol,maybe
+的,de,possessive/adjectival suffix,grammar,not useful as a visual object,no
+是,shì,to be; yes; this/that,grammar,not useful as a visual object,no
+不,bù,no; not; negative prefix,grammar,not useful as a visual object,no
+了,liǎo,completed-action particle,grammar,not useful as a visual object,no
+在,zài,be at; in; on,grammar,not useful as a visual object,no
+和,hé,and; harmony; peace,grammar,not useful as a visual object,no
+与,yǔ,and; with; to; for,grammar,not useful as a visual object,no
+也,yě,also; final particle,grammar,not useful as a visual object,no
+吗,ma,interrogative particle,grammar,not useful as a visual object,no

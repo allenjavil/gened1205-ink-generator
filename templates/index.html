@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chinese Character Ink Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f5efe3;
+      color: #2b2118;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fffaf0;
+      border: 1px solid #d8c7a3;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    #canvas-frame {
+      border: 12px solid #5a3e2b;
+      padding: 12px;
+      background: #e8dac0;
+      display: inline-block;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    canvas {
+      display: block;
+      background: white;
+      max-width: 100%;
+      height: auto;
+      touch-action: none;
+    }
+
+    button {
+      margin-top: 16px;
+      margin-right: 8px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 999px;
+      background: #2f2a24;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #5a3e2b;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #generated {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 10 / 13;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #d8c7a3;
+      transition: opacity 0.3s ease;
+      background: #efe5d2;
+    }
+
+    #status {
+      margin-top: 12px;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    #element-list {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    pre {
+      background: #2b2118;
+      color: #f5efe3;
+      padding: 16px;
+      border-radius: 12px;
+      overflow-x: auto;
+      max-height: 300px;
+    }
+
+    @media (max-width: 900px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      .concept-panel {
+        margin-top: 32px;
+        max-width: 900px;
+      }
+
+      .concept-panel h2 {
+        margin-top: 4px;
+        font-size: 28px;
+      }
+
+      .concept-panel p {
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      .section-label {
+        font-size: 13px !important;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #7a6548;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .process-grid div {
+        background: #f5efe3;
+        border: 1px solid #d8c7a3;
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .process-grid strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .process-grid p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      @media (max-width: 900px) {
+        .process-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .concept-panel h2 {
+          font-size: 24px;
+        }
+
+        .concept-panel p {
+          font-size: 16px;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <h1>Chinese Character Ink Generator</h1>
+    <p>Draw Chinese characters, collect them as visual elements, then generate one ink-style artwork.</p>
+    <div class="panel concept-panel">
+  <p class="section-label">Project Concept</p>
+  <h2>From Stroke to Prompt</h2>
+
+  <p>
+    My technology essay focused on the distance between using a writing system and fully 
+    understanding how it is constructed. I called this an interface gap: the space between 
+    knowing what you want to express and knowing how the system actually builds it. To extend
+    on this idea, I wanted to make this gap visible. 
+
+    This project begins with a handwritten Chinese character. The user draws by hand,
+    the system reads the character through OCR, connects it to a curated meaning, and
+    transforms that meaning into an ink-style generated image.
+  </p>
+
+  <p>
+    Overall, this project seeks to explore what happens when writing moves between hand, machine, and image.
+    The first mark is physical and personal, but the final composition is completed through
+    automation. In that shift, the character becomes both a written form and a prompt.
+  </p>
+</div>
+
+
+
+<div class="panel concept-panel">
+  <p class="section-label">How It Works</p>
+  <h2>The Process</h2>
+
+  <div class="process-grid">
+    <div>
+      <strong>1. Draw</strong>
+      <p>A character is written by hand on the canvas.</p>
+    </div>
+
+    <div>
+      <strong>2. Recognize</strong>
+      <p>OCR identifies the character from the drawing.</p>
+    </div>
+
+    <div>
+      <strong>3. Interpret</strong>
+      <p>A CSV-based dictionary connects the character to a curated meaning.</p>
+    </div>
+
+    <div>
+      <strong>4. Generate</strong>
+      <p>The collected meanings become one ink-style artwork.</p>
+    </div>
+  </div>
+</div>
+
+    <div class="workspace">
+
+      <div class="panel">
+        <h2>Drawing Canvas</h2>
+
+        <div id="canvas-frame">
+          <div id="canvas-holder"></div>
+        </div>
+
+
+        <div>
+          <button id="add-character-btn" onclick="submitDrawing()">Add Character</button>
+          <button onclick="clearCanvas()">Clear</button>
+          <button onclick="resetArtwork()">Reset</button>
+          <button id="generate-artwork-btn" onclick="generateArtwork()">Generate Artwork</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Generated Artwork</h2>
+        <img id="generated" />
+        <a id="download-artwork-link" href="/static/generated_art.png" download="ink_artwork.png">
+          <button class="download-btn">Download Artwork</button>
+        </a>
+      </div>
+
+
+    </div>
+
+
+    <div class="panel" style="margin-top: 32px;">
+      <h2>Artwork Elements</h2>
+      <ul id="element-list"></ul>
+    </div>
+
+    <div class="panel" style="margin-top: 32px;">
+      <h2>Debug Data</h2>
+      <pre id="result-output"></pre>
+    </div>
+  </div>
+
+  <script src="/static/sketch.js"></script>
+</body>
+</html>
