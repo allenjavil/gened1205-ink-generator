@@ -1,3 +1,10 @@
+import os
+
+os.environ["PADDLE_PDX_ENABLE_MKLDNN_BYDEFAULT"] = "0"
+os.environ["FLAGS_use_mkldnn"] = "0"
+os.environ["FLAGS_enable_pir_api"] = "0"
+os.environ["PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK"] = "True"
+
 from flask import Flask, jsonify, render_template, request
 from paddleocr import PaddleOCR
 from PIL import Image
@@ -5,7 +12,7 @@ from io import BytesIO
 from openai import OpenAI
 import base64
 import csv
-import os
+
 
 app = Flask(__name__)
 
