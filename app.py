@@ -115,6 +115,47 @@ def reset_scene():
     last_character = None
     return jsonify({"status": "scene reset"})
 
+@app.route("/add_manual_character", methods=["POST"])
+def add_manual_character():
+    data = request.get_json()
+    character = data.get("character", "").strip()
+
+    if not character:
+        return jsonify({"error": "No character selected."})
+
+    char_info = CHARACTER_MEANINGS.get(character)
+
+    if char_info and char_info["usable_for_image"] == "yes":
+        meaning = char_info["meaning"]
+        visual = char_info["prompt_hint"] or meaning
+        visual_category = char_info["visual_category"]
+    elif char_info:
+        meaning = char_info["meaning"]
+        visual = f"an abstract ink-wash form inspired by the idea of {meaning}"
+        visual_category = "abstract"
+    else:
+        meaning = "abstract symbolic form"
+        visual = f"an abstract ink-wash form inspired by the handwritten Chinese character {character}"
+        visual_category = "abstract"
+
+    scene_elements.append({
+        "character": character,
+        "meaning": meaning,
+        "visual": visual,
+        "visual_category": visual_category,
+        "position": "center",
+        "size": "medium"
+    })
+
+    return jsonify({
+        "character": character,
+        "meaning": meaning,
+        "visual": visual,
+        "visual_category": visual_category,
+        "position": "center",
+        "size": "medium",
+        "scene_elements": scene_elements
+    })
 
 def crop_to_ink(image):
     gray = image.convert("L")
@@ -160,8 +201,14 @@ def process_character_image(image_path, canvas_width=500, canvas_height=650):
         scores = page.get("rec_scores", [])
 
         if texts:
-            character = texts[0]
-            confidence = float(scores[0])
+            character = texts[0].strip() if texts else ""
+            confidence = float(scores[0]) if scores else 0
+
+            if not character:
+                return {
+                    "error": "No character recognized. Try drawing more clearly or choose a character manually.",
+                    "scene_elements": scene_elements
+                }
 
             if character == last_character:
                 return {
