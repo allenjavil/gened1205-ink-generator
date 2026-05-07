@@ -81,7 +81,9 @@ def add_character():
 
     os.makedirs("static", exist_ok=True)
     upload_path = "static/current_drawing.png"
+    image = crop_to_ink(image)
     image.save(upload_path)
+        
 
     result = process_character_image(
         upload_path,
@@ -113,6 +115,40 @@ def reset_scene():
     last_character = None
     return jsonify({"status": "scene reset"})
 
+
+def crop_to_ink(image):
+    gray = image.convert("L")
+    pixels = gray.load()
+    width, height = gray.size
+
+    xs = []
+    ys = []
+
+    for y in range(height):
+        for x in range(width):
+            if pixels[x, y] < 245:
+                xs.append(x)
+                ys.append(y)
+
+    if not xs or not ys:
+        return image
+
+    padding = 40
+    left = max(min(xs) - padding, 0)
+    right = min(max(xs) + padding, width)
+    top = max(min(ys) - padding, 0)
+    bottom = min(max(ys) + padding, height)
+
+    cropped = image.crop((left, top, right, bottom))
+
+    square_size = max(cropped.size)
+    square = Image.new("RGB", (square_size, square_size), "white")
+
+    x_offset = (square_size - cropped.size[0]) // 2
+    y_offset = (square_size - cropped.size[1]) // 2
+    square.paste(cropped, (x_offset, y_offset))
+
+    return square.resize((512, 512))
 
 def process_character_image(image_path, canvas_width=500, canvas_height=650):
     global last_character
