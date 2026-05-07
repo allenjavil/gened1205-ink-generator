@@ -48,8 +48,6 @@ function resetDrawingCanvas() {
   line(0, (height * 2) / 3, width, (height * 2) / 3);
 
   pop();
-
-  drawStatusMessage();
 }
 
 function draw() {
@@ -93,7 +91,6 @@ function drawStatusMessage() {
 
 function setStatus(message) {
   statusMessage = message;
-  drawStatusMessage();
 
   const statusElement = document.getElementById("status");
   if (statusElement) {
